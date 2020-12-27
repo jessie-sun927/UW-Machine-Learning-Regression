@@ -14,12 +14,12 @@
 
 
 ## Algorithms: 
-Cross-validation
+Cross-Validation
 
 
 ## Implementation Details of Programming Assignment:
 
-Goal:predict house prices using simple (one input) linear regression
+Goal: predict house prices using simple (one input) linear regression
 
 * Write a function to compute the Simple Linear Regression weights using the closed form solution
 * Write a function to make predictions of the output given the input feature
