@@ -1,31 +1,45 @@
-## Week2 Topics:
-* Polynomial regression
-* Closed-form solution of multiple linear regression
-* Gradient descent algorithm: an alternation way to solve minimization
-  - convergence: choose step size
-
+## Week6 Topics:
+* KNN
+  - i.e uniform kernel regression estimator, running mean estimator 
+  - Using a uniform kernel function, just average esponse within the bandwidth
+  - distance metric: Euclidean-distance, scale data first(use the same norm for training, validation, test set)
+  - choosing k: using validation set or cross-validation
+  
+* Weighted KNN
+  - giving weights to KNN, get weighted average as prediction
+  - weighting scheme
+    * inverse of distance
+    * kernel weights
+      * Epanechnikov kernel, Gaussian Kernel
+      * Kernels have parameters λ which specifies how quickly it goes to zero
+      * Gaussian kernel never goes to zero
+    
+* Kernel regression estimator
+  - i.e. Nadaraya-Watson estimator, local constant estimator
+  - Instead of k neighbors, if we consider all observations it becomes kernel regression
+  - Kernel can be bounded (uniform/triangular kernel), in such case we consider subset of neighbors but it is still not KNN
+  - choose kernel function
+  - choose bandwidth: bias-variance tradeoff
+    * controlled by parameters λ, which is tunned by cross-validation
+    * large bandwidth: low variance, high bias
+    * small bandwidth: high variance, low bias (overfit)
+    
+* Local linear regression estimator
+  - i.e. locally weighted linear regression estimator
+  - The above three method are all about taking weighted average for prediction
+  - if we fit a model near the prediction point(target point) where error is weighted by kernel, then it is local linear regression
+  - we can either fit with a linear model or nonlinear model
+  - local linear fit reduces bias at boundaries(recommended)
+  - local quadratic fit doesn't help at boundaries, but help capture curvature in the interior
 
 ## Algorithms: 
-* multiple linear regression
+* KNN, weighted KNN, kernel regression, local linear regression
 
 
-## Implementation Details of Programming Assignment 1:
+## Implementation Details of Programming Assignment:
 
 Goal: Use data on house sales in King County to predict prices using multiple regression. 
 
-* First to do some feature engineering
-* Use built-in scikit-learn functions to compute the regression weights (coefficients/parameters)
-* Given the regression weights, predictors and outcome write a function to compute the Residual Sum of Squares
-* Look at coefficients and interpret their meanings
-* Evaluate multiple models via RSS
-
-## Implementation Details of Programming Assignment 2:
-
-Goal: Estimating multiple regression weights via gradient descent.
-
-* Add a constant column of 1's to account for the intercept
-* Convert a dataframe into a Numpy array
-* Write a predict_output() function using Numpy
-* Write a numpy function to compute the derivative of the regression weights with respect to a single feature
-* Write gradient descent function to compute the regression weights given an initial weight vector, step size and tolerance.
-* Use the gradient descent function to estimate regression weights for multiple features
+* Find the k-nearest neighbors of a given query input
+* Predict the output for the query input using the k-nearest neighbors
+* Choose the best value of k using a validation set
