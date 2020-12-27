@@ -1,31 +1,47 @@
-## Week2 Topics:
-* Polynomial regression
-* Closed-form solution of multiple linear regression
-* Gradient descent algorithm: an alternation way to solve minimization
-  - convergence: choose step size
+## Week5 Topics:
+
+* Motivation for feature selection
+* Feature selection approaches
+  - subset selection
+    - best subset selection: search over 2^p models
+    - forward selection: search over 1+p(p+1)/2 models
+    - backward selection: search over 1+p(p+1)/2 models
+    - model selection criterion
+  - shrikage method: Lasso
+  - dimension reduction
+* Lasso
+  - cost function for lasso
+  - geometric representation: why L1 regularization helps select feature
+  - solving lasso
+    - no closed-form solution
+    - coordinate descent algorithm
+* Coordinate descent
+  - intercept is not penalized
+  - scale data first
+  - visualize coefficient path in least square, ridge, lasso(soft-thresholding)
+* Compare ridge and lasso
+  - lasso performs better when only a few coefficients are substantially large
+  - ridge performs better when response is a function of many predictors and each has roughly equal size
+* Predict using learned weights
+  - scale test data using the same norms in training data
+  - scale weights learned in training data
+  
 
 
 ## Algorithms: 
-* multiple linear regression
+* Solve Lasso using coordinate descent
 
 
 ## Implementation Details of Programming Assignment 1:
 
-Goal: Use data on house sales in King County to predict prices using multiple regression. 
-
-* First to do some feature engineering
-* Use built-in scikit-learn functions to compute the regression weights (coefficients/parameters)
-* Given the regression weights, predictors and outcome write a function to compute the Residual Sum of Squares
-* Look at coefficients and interpret their meanings
-* Evaluate multiple models via RSS
+Goal: Use LASSO to select features, building on a pre-implemented solver for LASSO
+* Run LASSO with different L1 penalties.
+* Choose best L1 penalty using a validation set.
+* Choose best L1 penalty using a validation set, with additional constraint on the size of subset.
 
 ## Implementation Details of Programming Assignment 2:
 
-Goal: Estimating multiple regression weights via gradient descent.
-
-* Add a constant column of 1's to account for the intercept
-* Convert a dataframe into a Numpy array
-* Write a predict_output() function using Numpy
-* Write a numpy function to compute the derivative of the regression weights with respect to a single feature
-* Write gradient descent function to compute the regression weights given an initial weight vector, step size and tolerance.
-* Use the gradient descent function to estimate regression weights for multiple features
+Goal: Implement Lasso from scratch using coordinate descent algorithm
+* Write a function to normalize features
+* Implement coordinate descent for LASSO
+* Explore effects of L1 penalty
