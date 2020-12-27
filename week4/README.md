@@ -1,31 +1,44 @@
-## Week2 Topics:
-* Polynomial regression
-* Closed-form solution of multiple linear regression
-* Gradient descent algorithm: an alternation way to solve minimization
-  - convergence: choose step size
+## Week4 Topics:
+
+* Overfiiting problem and its symptons
+* Control overfiting:
+  - modified cost function
+  - how penalty level reflecting bias-variance tradeoff
+* Solve ridge regression
+  - closed-form solution
+  - gradient descent with L2 regularization
+    - do not penalize on intercept
+    - scale data first
+* Select optimal penalty:
+  - held-out method
+  - cross-validation
 
 
 ## Algorithms: 
-* multiple linear regression
+* Gradient descent
+* k-fold Cross-validation from scratch
+* Optimize parameters using GridSearchCV
 
 
 ## Implementation Details of Programming Assignment 1:
 
-Goal: Use data on house sales in King County to predict prices using multiple regression. 
+Goal: Explore the effect of L2 regularization on polynomial regression
 
-* First to do some feature engineering
-* Use built-in scikit-learn functions to compute the regression weights (coefficients/parameters)
-* Given the regression weights, predictors and outcome write a function to compute the Residual Sum of Squares
-* Look at coefficients and interpret their meanings
-* Evaluate multiple models via RSS
+* Polynomial regression with a small penalty:
+    * Use the pre-built implementation of regression  to run polynomial regression
+    * Use matplotlib to visualize polynomial regressions on four datasets
+    * Observe overfitting: Use matplotlib to visualize polynomial regressions with L2_small_penalty
+* Polynomial regression with an appropriate penalty:
+    * Control overfitting: Use matplotlib to visualize polynomial regressions with L2_large_penalty
+    * Choose best L2 penalty by building hands-on cross-validation function
+    * Another option to choose best L2 penalty: using sklearn.ridgeCV
+    * Assess the final fit using test data.
 
 ## Implementation Details of Programming Assignment 2:
 
-Goal: Estimating multiple regression weights via gradient descent.
+Goal: Implement ridge regression from scratch.
 
-* Add a constant column of 1's to account for the intercept
-* Convert a dataframe into a Numpy array
-* Write a predict_output() function using Numpy
-* Write a numpy function to compute the derivative of the regression weights with respect to a single feature
-* Write gradient descent function to compute the regression weights given an initial weight vector, step size and tolerance.
-* Use the gradient descent function to estimate regression weights for multiple features
+* Write a function to convert dataframe to numpy array
+* Write a Numpy function to compute the derivative of the regression weights with respect to a single feature
+* Write functions to compute prediction, derivative
+* Implement ridge regression learning algorithm using gradient descent from scratch, compare the effects of penalty level on coefficients
