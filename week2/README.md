@@ -1,7 +1,7 @@
 ## Week2 Topics:
 * Polynomial regression
 * Closed-form solution of multiple linear regression
-* Solve minimization with gradient ascent algoithm
+* Gradient descent algorithm: an alternation way to solve minimization
   - convergence: choose step size
 
 
