@@ -2,7 +2,7 @@
 * Polynomial regression
 * Closed-form solution of multiple linear regression
 * Gradient descent algorithm: an alternation way to solve minimization
-  - convergence: choose step size
+  - convergence: choose step size, maximum iteration
 
 
 ## Algorithms: 
