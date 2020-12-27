@@ -1,7 +1,7 @@
 ## Week1 Topics:
 * Assumptions of linear simple regression
 * Closed-form solution of simple regression
-* 
+
 
 ## Algorithms: 
 * simple linear regression
