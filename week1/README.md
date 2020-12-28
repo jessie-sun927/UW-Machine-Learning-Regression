@@ -7,7 +7,7 @@
 ## Algorithms: 
 * simple linear regression
 
-## ## Implementation Details of Programming Assignment:
+## Implementation Details of Programming Assignment:
 * Use functions to compute important summary statistics
 * Write a function to compute the Simple Linear Regression weights using the closed form solution
 * Write a function to make predictions of the output given the input feature
